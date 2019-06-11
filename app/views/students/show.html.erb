@@ -1,0 +1,7 @@
+<h1>Emissions added by: <%= @student.name %> </h1>
+
+<ul>
+  <% @student_emissions.each do |e| %>
+  <li><%= e.food.name %> <%= e.amount %> <%= e.unit %> Source: <%= e.source %></li>
+  <% end %>
+</ul>

@@ -16,6 +16,7 @@ class StudentsController < ApplicationController
 
   def show
     @student = current_student
+    @student_emissions = current_student.emissions
   end
 
   def index
