@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
   end
 
   def create
-    raise params.inspect
+    @student = Student.new(student_params)
   end
 
   def show
@@ -26,5 +26,11 @@ class StudentsController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def student_params
+    params.require(:student).permit(:name, :email, :password)
   end
 end
