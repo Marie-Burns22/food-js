@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  food_id: 1
+  amount: 1
+  unit: MyString
+
+two:
+  student_id: 1
+  food_id: 1
+  amount: 1
+  unit: MyString
