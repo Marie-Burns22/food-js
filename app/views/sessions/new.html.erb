@@ -1,7 +1,10 @@
 <h1>Student Login Page</h1>
 
 <%= form_tag sessions_path do %>
-  <%= collection_select(:student, :name, Student.all, :name, :id)
+  <label>Select Student:</label><br>
+  <%= collection_select(:student, :name, Student.all, :id, :name) %><br>
+
+  <label>Enter Password:</label><br>
   <%= text_field_tag(:password) %><br>
   <%= submit_tag "Log In" %>
 <% end %>

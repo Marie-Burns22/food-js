@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'welcome/index'
+  get 'welcome/index'
   resources :emissions
   resources :students
   resources :foods, only: [:index, :show, :edit, :update, :destroy]
+  resources :sessions
 
-  get '/signin' => 'sessions#new'
+  get '/login' => 'sessions#new'
 
   post '/sessions' => 'sessions#create'
 
