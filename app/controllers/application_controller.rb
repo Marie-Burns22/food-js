@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
     @current_student ||= Student.find(session[:student_id]) if session[:student_id]
   end
 
-  def logged_in:
+  def logged_in?
     redirect_to '/' if !session[:student_id]
-  end 
+  end
 
 end
