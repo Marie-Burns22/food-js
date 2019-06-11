@@ -1,0 +1,8 @@
+<div class="container text-center">
+  <h2><%= @food.name %></h2>
+  <ul>
+    <% @food.emissions.each do |e| %>
+        <li><%= e.amount %> <%=e.unit %> Source: <%= e.source %></li>
+    <% end %>
+  </ul>
+</div>
