@@ -26,7 +26,7 @@ class EmissionsController < ApplicationController
   private
 
   def emission_params
-    params.require(:emission).permit(:amount, :unit, :source, food_attributes: [
+    params.require(:emission).permit(:amount, :food_id, :student_id, :unit, :source, food_attributes: [
       :name,
       :category,
       ])

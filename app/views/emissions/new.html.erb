@@ -1,6 +1,18 @@
 <h1>Add new emissions data</h1>
 
 <%= form_for @emission do |f| %>
+  <%= f.text_field :food_name, list: "foods_autocomplete" %>
+  <datalist id="foods_autocomplete">
+    <% Food.all.each do |food| %>
+      <option value="<%= food.name %>">
+    <% end %>
+  </datalist>
+
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
+
+  <%= f.label :unit %>
+  <%= f.text_field :unit %>
 
   <%= f.submit %>
 <% end %>
