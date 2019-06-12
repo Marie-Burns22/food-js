@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'welcome/index'
-  resources :emissions
+  resources :emissions, only: [:new, :edit, :update, :destroy, :index]
   resources :students
   resources :foods, only: [:index, :show, :edit, :update, :destroy]
   resources :sessions
