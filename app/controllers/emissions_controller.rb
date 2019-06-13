@@ -13,12 +13,14 @@ class EmissionsController < ApplicationController
   end
 
   def edit
-    @emission = Emission.find_by(id: params[:id])
+    @emission = Emission.find(params[:id])
   end
 
   def update
-    @emission = Emission.find_by(id: params[:id])
-
+    @emission = Emission.find(params[:id])
+    @emission.update_attributes(emission_params)
+    flash[:message] = "Successfully updated emission"
+    redirect_to foods_path
   end
 
   def destroy
