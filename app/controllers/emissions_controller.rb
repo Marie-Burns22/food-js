@@ -17,6 +17,8 @@ class EmissionsController < ApplicationController
   end
 
   def update
+    @emission = Emission.find_by(id: params[:id])
+
   end
 
   def destroy

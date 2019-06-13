@@ -6,6 +6,4 @@ class Emission < ApplicationRecord
   validates :unit, :presence => true
   validates :amount, :presence => true
   validates :source, :presence => true
-
-
 end
