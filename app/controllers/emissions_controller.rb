@@ -9,7 +9,6 @@ class EmissionsController < ApplicationController
     @emission = Emission.new(emission_params)
     @emission.student_id = current_student.id
     @emission.save
-
     redirect_to foods_path
   end
 
@@ -26,7 +25,7 @@ class EmissionsController < ApplicationController
   private
 
   def emission_params
-    params.require(:emission).permit(:amount, :food_id, :student_id, :unit, :source, foods_attributes: [
+    params.require(:emission).permit(:amount, :food_id, :student_id, :unit, :source, food_attributes: [
       :name,
       :category,
       ])

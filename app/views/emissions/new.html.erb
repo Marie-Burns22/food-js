@@ -16,14 +16,17 @@
 
   <p>Select a Food that already exists:</p>
   <div>
-    <%= f.collection_select :food_id, Food.all, :id, :name %>
+    <%= f.collection_select :food_id, Food.all, :id, :name, include_blank: true %>
   </div>
 
   <p>Or create a new food:</p>
   <div>
     <%= f.fields_for :food do |food_attributes| %>
       <%= food_attributes.label :name %>
-      <%= food_attributes.text_field :name %>
+      <%= food_attributes.text_field :name %> <br>
+
+      <%= food_attributes.label :category %>
+      <%= food_attributes.text_field :category %>
     <% end %>
   </div>
 
