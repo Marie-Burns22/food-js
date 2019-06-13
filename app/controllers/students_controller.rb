@@ -37,7 +37,6 @@ class StudentsController < ApplicationController
     # @student = Student.find(student_params[:id])
     # @student = Student.find(params[:id])
     # @student = Student.find(current_student[:id])
-
   end
 
 # for the update action which method to find the student to update is most secure?
@@ -47,7 +46,6 @@ class StudentsController < ApplicationController
     # @student = Student.find(current_student[:id])
     @student.update_attributes(student_params)
     redirect_to student_path
-
   end
 
   def destroy
