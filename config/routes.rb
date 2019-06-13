@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
 
-  get 'welcome/index'
-  resources :emissions, only: [:new, :edit, :update, :destroy, :index]
-  resources :students
-  resources :foods, only: [:index, :show, :edit, :update, :destroy]
-  resources :sessions
-
+  get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/signup' => 'students#new'
 
-  post '/sessions' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 
   get '/logout' => 'sessions#destroy'
+  resources :emissions, only: [:new, :create, :edit, :update, :destroy, :index]
+  resources :students
+  resources :foods, only: [:index, :show, :edit, :update, :destroy]  #should emissions be nested under foods or students?
+  # resources :sessions
 
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end

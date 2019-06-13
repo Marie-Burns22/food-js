@@ -1,6 +1,8 @@
 <h1>Student Login Page</h1>
 
-<%= form_tag sessions_path do %>
+<p><%= flash[:error]%></p>
+
+<%= form_tag '/login' do %>
   <label>Select Student:</label><br>
   <%= collection_select(:student, :name, Student.all, :id, :name) %><br>
 

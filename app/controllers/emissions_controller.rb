@@ -2,15 +2,15 @@ class EmissionsController < ApplicationController
 
   def new
     @emission = Emission.new
-    @emission.food.build
+    @emission.build_food
   end
 
   def create
-    Emission.create(emission_params)
-  end
+    @emission = Emission.new(emission_params)
+    @emission.student_id = current_student.id
+    @emission.save
 
-  def index
-    redirect_to '/foods'
+    redirect_to foods_path
   end
 
   def edit
@@ -26,7 +26,7 @@ class EmissionsController < ApplicationController
   private
 
   def emission_params
-    params.require(:emission).permit(:amount, :food_id, :student_id, :unit, :source, food_attributes: [
+    params.require(:emission).permit(:amount, :food_id, :student_id, :unit, :source, foods_attributes: [
       :name,
       :category,
       ])

@@ -1,9 +1,34 @@
 <div class="container text-center">
 
 
-<h1>Foods list</h1>
+  <h1>Foods list</h1>
 
-<% @foods.each do |food| %>
-  <h2><%= food.name %></h2>
-<% end %>
+  <div class="container">
+
+    <div class="row" id="column-headings">
+      <div class="col-md-4">
+        Food
+      </div>
+      <div class="col-md-4">
+        Food Category
+      </div>
+      <div class="col-md-4">
+        Emission
+      </div>
+    </div>
+
+    <div class="row" id="data">
+      <% @foods.each do |food| %>
+        <div class="col-md-4">
+          <%= food.name %>
+        </div>
+        <div class="col-md-4">
+          <%= food.category %>
+        </div>
+        <div class="col-md-4">
+          emission placeholder
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

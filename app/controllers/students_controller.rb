@@ -10,11 +10,12 @@ class StudentsController < ApplicationController
       session[:student_id] = @student.id
       redirect_to student_path(@student)
     else
-      redirect_to signup_path
+      render :new
     end
   end
 
   def show
+    logged_in?
     @student = current_student
     @student_emissions = current_student.emissions
   end
