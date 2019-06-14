@@ -2,9 +2,10 @@
   <h2><%= @food.name %></h2>
   <ul>
     <% @food.emissions.each do |e| %>
-        <li><%= e.amount %> <%=e.unit %>, Source: <%= e.source %>, <%= link_to "Edit emission", edit_emission_path(e) %></li> <br>
+        <li><%= e.amount %> <%=e.unit %>, <a href=<%= "#{e.source}" %>>Link to Data Source</a> <%= link_to "Edit emission", edit_emission_path(e) if logged_in? %></li> <br>
+
     <% end %>
-    <%= link_to "Edit #{@food.name}", edit_food_path %>
+    <%= link_to "Edit #{@food.name}", edit_food_path  if logged_in?%>
 
   </ul>
 </div>
