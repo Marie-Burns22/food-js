@@ -6,27 +6,45 @@
   <div class="container">
 
     <div class="row" id="column-headings">
-      <div class="col-md-4">
+      <div class="col-md-2">
         Food
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         Food Category
       </div>
-      <div class="col-md-4">
-        Emission
+      <div class="col-md-2">
+        kg CO2e per lb of food
+      </div>
+      <div class="col-md-2">
+        lbs of CO2e per serving
+      </div>
+      <div class="col-md-2">
+        g of CO2e per serving
+      </div>
+      <div class="col-md-2">
+        kg of CO2 per 50 g of protein
       </div>
     </div>
 
     <div class="row" id="data">
       <% @foods.each do |food| %>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <%= food.name %>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <%= food.category %>
         </div>
-        <div class="col-md-4">
-          emission placeholder
+        <div class="col-md-2">
+          <%= food.kg_unit_per_lb %>
+        </div>
+        <div class="col-md-2">
+          <%= food.lbs_per_serving %>
+        </div>
+        <div class="col-md-2">
+          <%= food.g_per_serving %>
+        </div>
+        <div class="col-md-2">
+          <%= food.kg_per_protein %>
         </div>
       <% end %>
     </div>
