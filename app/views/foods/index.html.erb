@@ -29,7 +29,7 @@
     <div class="row" id="data">
       <% @foods.each do |food| %>
         <div class="col-md-2">
-          <%= food.name %>
+          <%= link_to "#{food.name}", food_path(food) %>
         </div>
         <div class="col-md-2">
           <%= food.category %>
