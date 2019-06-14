@@ -26,7 +26,7 @@
       <%= food_attributes.text_field :name %> <br>
 
       <%= food_attributes.label :category %>
-      <%= food_attributes.text_field :category %>
+      <%= food_attributes.select :category, ['Meat', 'Dairy', 'Egg', 'Fruit', 'Vegetable', 'Nuts', 'Legume', 'Mixed dish', 'Fish'] %>
     <% end %>
   </div>
 
