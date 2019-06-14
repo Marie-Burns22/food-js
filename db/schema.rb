@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_181052) do
   create_table "emissions", force: :cascade do |t|
     t.integer "student_id"
     t.integer "food_id"
-    t.integer "amount"
+    t.float "amount"
     t.string "unit"
     t.string "source"
     t.datetime "created_at", null: false

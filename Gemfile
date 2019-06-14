@@ -30,6 +30,9 @@ gem 'faker'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
+gem 'omniauth'
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
