@@ -1,8 +1,11 @@
 <h1>Edit Emissions </h1>
 
 <%= form_for(@emission) do |f| %>
+
+  <h2>Update Emissions Information:</h2>
+  <%= link_to "Edit name or category for #{@emission.food.name}", edit_food_path(@emission.food) %>
   <div>
-    <%= f.label :amount %>
+    <%= f.label :amount, "Amount (enter a number)" %>
     <%= f.text_field :amount %><br>
   </div>
 
@@ -12,26 +15,9 @@
   </div>
 
   <div>
-    <%= f.label :source %>
+    <%= f.label :source, 'URL for source of data' %>
     <%= f.text_field :source %>
   </div>
 
-
-  <div>
-    <p>Select a Food that already exists:</p>
-    <%= f.collection_select :food_id, Food.all, :id, :name, include_blank: true %>
-  </div>
-
-  <p> Or create a new food:</p>
-  <div>
-    <%= f.fields_for :food do |food_attributes| %>
-      <%= food_attributes.label :name %>
-      <%= food_attributes.text_field :name %> <br>
-
-      <%= food_attributes.label :category %>
-      <%= food_attributes.select :category, ['Meat', 'Dairy', 'Egg', 'Fruit', 'Vegetable', 'Nuts', 'Legume', 'Mixed dish', 'Fish'] %>
-    <% end %>
-  </div>
-
-  <%= f.submit %>
+  <%= f.submit "Update emission data" %>
 <% end %>
