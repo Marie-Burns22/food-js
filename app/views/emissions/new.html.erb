@@ -1,5 +1,8 @@
 <h1>Add new emissions data</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @emission} %> 
+
+
 <%= form_for(@emission) do |f| %>
 
 <h2>Food Information:</h2><br>

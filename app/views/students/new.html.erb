@@ -1,5 +1,7 @@
 <h1>Student Sign Up Page</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @student} %> 
+
 <%= form_for @student do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br>
