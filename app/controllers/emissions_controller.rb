@@ -1,6 +1,7 @@
 class EmissionsController < ApplicationController
 
   def new
+    logged_in?
     @emission = Emission.new
     @emission.build_food
   end

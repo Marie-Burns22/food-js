@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    redirect_to '/' if !session[:student_id]
+    # redirect_to '/' if !session[:student_id]
+    redirect_to(root_url, {:flash => { :error => "You must be logged in to do this" }}) if !session[:student_id]
   end
 
 end

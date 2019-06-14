@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get '/' => 'sessions#welcome'
+  root 'sessions#welcome'
+  # get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'students#new'
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   resources :students do
     resources :emissions, shallow: true
   end
-  
+
   resources :foods, only: [:index, :show, :edit, :update, :destroy] do
     resources :emissions, shallow: true
   end
