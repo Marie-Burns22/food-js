@@ -1,1 +1,20 @@
 <h1>Edit food form</h1>
+
+
+<%= form_for @food do |f| %>
+  <div>
+    <p>Update Food Name:</p>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+  </div>
+
+  <div>
+    <p>Update Food Category:</p>
+    <%= f.select :category, ['Meat', 'Dairy', 'Egg', 'Fruit', 'Vegetable', 'Nuts', 'Legume', 'Mixed dish', 'Fish'] %>
+    
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
