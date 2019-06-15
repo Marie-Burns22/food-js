@@ -4,6 +4,6 @@
 
 <ul>
   <% @student_emissions.each do |e| %>
-  <li><%= link_to "#{e.food.name}", food_path(e.food) %> <%= e.amount %> <%= e.unit %> <a href="<%= "#{e.source}" %>">Data Source</a></li>
+  <li><%= link_to "#{e.food.name}", food_path(e.food) %> <%= e.amount %> <%= e.unit %> Data Source: <%= e.source %></li>
   <% end %>
 </ul>

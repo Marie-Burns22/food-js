@@ -2,8 +2,8 @@
   <h2><%= @food.name %></h2>
   <ul>
     <% @food.emissions.each do |e| %>
-    <% binding.pry %>
-        <li><%= e.amount %> <%=e.unit %>, <a href=<%= "#{e.source}" %>>Link to Data Source</a>, <%= link_to "Edit emission", edit_emission_path(e) if logged_in? %>, Added by <%= link_to "#{e.student.name}", student_path(e.student) %></li> <br>
+
+        <li><%= e.amount %> <%=e.unit %>, Data Source: <%= "#{e.source}" %>, <%= link_to "Edit emission", edit_emission_path(e) if logged_in? %>, Added by <%= link_to "#{e.student.name}", student_path(e.student) %></li> <br>
 
     <% end %>
 
