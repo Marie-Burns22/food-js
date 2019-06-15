@@ -2,11 +2,11 @@
 
 <p><%= flash[:error]%></p>
 
-<%= form_tag '/login' do %>
+<%= form_tag('/login') do %>
   <label>Select Student:</label><br>
-  <%= collection_select(:student, :name, Student.all, :id, :name) %><br>
+  <%= collection_select(:student, :name, Student.all, :name, :name) %><br>
 
   <label>Enter Password:</label><br>
-  <%= text_field_tag(:password) %><br>
+  <%= password_field_tag(:password) %><br>
   <%= submit_tag "Log In" %>
 <% end %>

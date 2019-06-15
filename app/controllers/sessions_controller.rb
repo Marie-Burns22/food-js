@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     # if params[:student][:name].nil? || params[:student][:name] == ""
     #   redirect_to '/login'
       @student = Student.find_by(name: params[:student][:name])
-      if @student.try(:authenticate, params[:student][:password])
+      if @student.try(:authenticate, params[:password])
         session[:student_id]= @student.id
         redirect_to student_path(@student)
       else
