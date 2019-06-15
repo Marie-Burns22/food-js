@@ -7,13 +7,17 @@ class EmissionsController < ApplicationController
 
   def create
     @emission = Emission.new(emission_params)
-    @emission.student_id = current_student.id
-    @emission.save
-    redirect_to foods_path
+    @emission.student_id = session[:student_id]
+    if @emission.save!
+      redirect_to foods_path
+    else
+      render :new
+    end
   end
 
   def edit
-    @emission = Emission.find(params[:id])
+    @emission = Emission.find_by_id(params[:id])
+    redirect_to foods_path if !@emission
   end
 
   def update

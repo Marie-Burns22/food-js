@@ -1,13 +1,12 @@
 <h1>Add new emissions data</h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @emission} %> 
-
+<%= render partial: 'layouts/errors', locals: {object: @emission} %>
 
 <%= form_for(@emission) do |f| %>
 
 <h2>Food Information:</h2><br>
   <div>
-    <p>Select a Food that already exists:</p>
+    <%= f.label :food_id, "Select a Food that already exists:" %>
     <%= f.collection_select :food_id, Food.all, :id, :name, include_blank: true %>
   </div>
 
@@ -18,14 +17,14 @@
       <%= food_attributes.text_field :name %> <br>
 
       <%= food_attributes.label :category %>
-      <%= food_attributes.select :category, ['Meat', 'Dairy', 'Egg', 'Fruit', 'Vegetable', 'Nuts', 'Legume', 'Mixed dish', 'Fish'] %>
+      <%= food_attributes.select :category, ['', 'Meat', 'Dairy', 'Egg', 'Fruit', 'Vegetable', 'Nuts', 'Legume', 'Mixed dish', 'Fish'] %>
     <% end %>
   </div>
 
   <h2>Emissions Information:</h2>
   <div>
     <%= f.label :amount, "Amount (enter a number)" %>
-    <%= f.text_field :amount %><br>
+    <%= f.number_field :amount, class: :text_field, min: 0, step: :any %><br>
   </div>
 
   <div>

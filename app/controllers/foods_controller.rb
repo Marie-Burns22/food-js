@@ -6,16 +6,21 @@ class FoodsController < ApplicationController
   end
 
   def edit
-    @food = Food.find(params[:id])
+    @food = Food.find_by_id(params[:id])
+    redirect_to foods_path if !@food
   end
 
   def update
+    @food = Food.find_by_id(params[:id])
+    redirect_to foods_path if !@food
     @food = Food.find(params[:id])
     @food.update_attributes(food_params)
     redirect_to foods_path
   end
 
   def show
+    @food = Food.find_by_id(params[:id])
+    redirect_to foods_path if !@food
     @food = Food.find(params[:id])
   end
 
