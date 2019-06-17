@@ -17,12 +17,9 @@ class EmissionsController < ApplicationController
 
   def edit
     @emission = Emission.find_by_id(params[:id])
-    edit_permission(@emission)
-    if !creator
-      redirect_to foods_path
-    else
-      redirect_to foods_path if !@emission
-    end
+    flash[:message] = "Must have added the emission to edit it" if !edit_permission(@emission)
+    redirect_to foods_path if !edit_permission(@emission)
+    # end
   end
 
   def update
