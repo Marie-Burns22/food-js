@@ -34,6 +34,10 @@ class EmissionsController < ApplicationController
   end
 
   def destroy
+    @emission = Emission.find(params[:id])
+    @emission.destroy
+    flash[:message] = "Emission for #{@emission.food.name} deleted."
+    redirect_to foods_path
   end
 
   private

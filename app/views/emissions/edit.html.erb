@@ -19,4 +19,7 @@
   </div>
 
   <%= f.submit "Update emission data" %>
+
+  <%= button_to "Delete this emission", { :action => "destroy", :id => @emission.id }, :confirm => "Are you sure?", :method => :delete %> 
+
 <% end %>
