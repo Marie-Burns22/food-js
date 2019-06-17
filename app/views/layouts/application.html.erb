@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../assets/stylesheetsapplication.scss">
+
+    <%= stylesheet_link_tag "application" %>
 
     <title>Food Emissions</title>
   </head>
@@ -27,9 +28,7 @@
   </nav>
 
   <body>
-    <p>This part is covered by the navbar</p>
-    <p>This part is covered by the navbar</p>
-    <p>This part is covered by the navbar</p>
+    
     <div class="container"  role="main">
      <% flash.each do |key, value| %>
        <div class="alert alert-<%= key %>"><%= value %></div>

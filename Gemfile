@@ -30,6 +30,12 @@ gem 'faker'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
+#omniauth gems
+gem 'omniauth'
+gem 'dotenv-rails'  #allows to use the .env file with all the secret information
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
+
 
 
 

@@ -2,6 +2,6 @@
 
 <ul>
   <% @students.each do |s| %>
-  <li><%= s.name %></li>
+  <li><%= link_to "#{s.name}", student_emissions_path(s.id)%></li>
   <% end %>
 </ul>

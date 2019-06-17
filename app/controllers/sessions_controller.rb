@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: [:welcome, :new, :create]
+  skip_before_action :require_login, only: [:welcome, :new, :create, :omniauth, :auth]
 
   def welcome
   end
@@ -20,9 +20,22 @@ class SessionsController < ApplicationController
       end
     end
 
-
   def destroy
     session.delete :student_id if session[:student_id]
     redirect_to "/"
+  end
+
+  def omniauth
+    binding.pry
+    @student = Student.from_omniauth(auth)
+
+    session[:student_id] = @student.id
+    redirect_to student_path(@student)
+  end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
   end
 end

@@ -17,7 +17,11 @@ class EmissionsController < ApplicationController
 
   def edit
     @emission = Emission.find_by_id(params[:id])
-    redirect_to foods_path if !@emission
+    if !creator
+      redirect_to foods_path
+    else
+      redirect_to foods_path if !@emission
+    end
   end
 
   def update
@@ -37,6 +41,10 @@ class EmissionsController < ApplicationController
       :name,
       :category,
       ])
+  end
+
+  def creator
+    current_student.id == @emission.student.id
   end
 
 end
