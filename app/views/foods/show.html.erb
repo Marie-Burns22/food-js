@@ -3,7 +3,7 @@
   <ul>
     <% @food.emissions.each do |e| %>
 
-        <li><%= e.amount %> <%=e.unit %>, Data Source: <%= "#{e.source}" %>, <%= link_to "Edit emission", edit_emission_path(e) if logged_in? %>, Added by <%= link_to "#{e.student.name}", student_path(e.student) %></li> <br>
+        <li><%= e.amount %> <%=e.unit %>, Data Source: <%= "#{e.source}" %>, <%= link_to "Edit emission", edit_emission_path(e) if edit_permission(e) %>, Added by <%= link_to "#{e.student.name}", student_path(e.student) %></li> <br>
 
     <% end %>
 

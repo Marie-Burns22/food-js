@@ -17,6 +17,7 @@ class EmissionsController < ApplicationController
 
   def edit
     @emission = Emission.find_by_id(params[:id])
+    edit_permission(@emission)
     if !creator
       redirect_to foods_path
     else
@@ -26,6 +27,7 @@ class EmissionsController < ApplicationController
 
   def update
     @emission = Emission.find(params[:id])
+    edit_permission(@emission)
     @emission.update_attributes(emission_params)
     flash[:message] = "Successfully updated emission"
     redirect_to foods_path

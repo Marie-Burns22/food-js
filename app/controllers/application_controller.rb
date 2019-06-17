@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_student
   helper_method :logged_in?
+  helper_method :edit_permission
 
   before_action :require_login
 
@@ -19,10 +20,12 @@ class ApplicationController < ActionController::Base
     @current_student ||= Student.find(session[:student_id]) if session[:student_id]
   end
 
-  def logged_in?
-    # redirect_to '/' if !session[:student_id]
-    # redirect_to(root_url, {:flash => { :error => "You must be logged in to do this" }}) if !session[:student_id]
+  def logged_in?  #is this method needed?
     session[:student_id]
+  end
+
+  def edit_permission(emission) #could logged_in? be session[:student_id]
+    emission.student == current_student
   end
 
 end
