@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    binding.pry
+
     @student = Student.from_omniauth(auth)
 
     session[:student_id] = @student.id

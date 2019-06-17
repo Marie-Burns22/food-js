@@ -20,8 +20,19 @@
 body {
   padding-top: 60px;
 }
+
 @media (max-width: 979px) {
   body {
     padding-top: 0px;
   }
+}
+
+
+
+.row > div {
+  margin-top: 10px;
+  padding: 20px;
+  box-shadow: -.5px -.5px 0 .5px #ccc, inset -1px -1px 0 0 #ccc
+  // outline: 2px solid #ccc;
+  // outline-offset: -10px;
 }
