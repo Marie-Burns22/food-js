@@ -11,8 +11,16 @@ class Food < ApplicationRecord
   end
 
   def kg_unit_per_lb
-    emission = self.emissions.where(:unit => "kg CO2e per lb of food").first
-    emission ? amount = emission.amount : ""
+    emission = self.emissions.where(:unit => "kg CO2e per lb of food")
+    if !emission
+      ""
+    else
+      amounts = []
+      emission.map do |e|
+        amounts << e.amount
+      end
+      amounts.join(", ")
+    end
   end
 
   def lbs_per_serving

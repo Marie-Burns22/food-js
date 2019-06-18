@@ -35,7 +35,7 @@ class EmissionsController < ApplicationController
     @emission = Emission.find(params[:id])
     edit_permission(@emission)
     @emission.update_attributes(emission_params)
-    flash[:message] = "Successfully updated emission"
+    flash[:message] = "Successfully updated emission for #{@emission.food.name}"
     redirect_to foods_path
   end
 
