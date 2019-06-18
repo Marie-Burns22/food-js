@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         redirect_to student_path(@student)
       else
         flash[:error] = "Sorry, login info was incorrect. Please login."
-        redirect_to '/login'
+        redirect_to '/'
       end
     end
 
@@ -27,8 +27,8 @@ class SessionsController < ApplicationController
 
   def omniauth
     if !auth[:info][:email]
-      flash[:error] = "Your email must be public to login with google or github"
-      redirect_to '/login'
+      flash[:error] = "Your email must be public to login with google or github."
+      redirect_to '/'
     else
       @student = Student.from_omniauth(auth)
       session[:student_id] = @student.id

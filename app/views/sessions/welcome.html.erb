@@ -6,7 +6,16 @@
 
   <h3>Directions for use:</h3><br>
   <h5>Who?</h5>
-  <p>Anyone can view the log of food emission data collected by students. To add food emissions data, you must be signed in and logged in. </p><br>
+  <p>Anyone can view the log of food emission data collected by students. To add food emissions data, you must be logged in. </p>
+    <div class="container text-left" id="Signup links">
+    <%= link_to "Sign in with Google", "/auth/google_oauth2" %>   OR
+
+    <%= link_to "Sign in with Github", "/auth/github" %> <br>
+    <p> Or create an account here:
+    <%= link_to "Signup", signup_path %>
+    or
+    <%= link_to "Login", login_path %></p>
+    </div>
 
   <h5>Where do I find data?</h5>
   <p>A list of websites with food emissions data is provided below. You can also find data on other websites to add to this app.</p><br>
@@ -16,14 +25,4 @@
 
   <p>Emissions may be provided in carbon dioxide, methane, or CO2 -e units.  CO2 -e is the most accurate for food emissions since it takes into account different sources of emissions throughout the food production cycle.  Make sure to read about how the emissions are calculated on each website that you use. </p>
 
-</div>
-
-<div class="container text-left" id="Signup links">
-<%= link_to "Sign in or Log In with Google", "/auth/google_oauth2" %><br>
-
-<%= link_to "Sign in with Github", "/auth/github" %> <br>
-<p>
-<%= link_to "Signup", signup_path %>
-OR
-<%= link_to "Login", login_path %></p>
 </div>
