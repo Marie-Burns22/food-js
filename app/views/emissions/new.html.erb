@@ -4,7 +4,7 @@
 
 <%= form_for(@emission) do |f| %>
 
-<% if !@emission.food %>
+<% if !@emission.food.id %>
 <h2>Food Information:</h2><br>
   <div>
     <%= f.label :food_id, "Select a Food that already exists:" %>
@@ -24,6 +24,7 @@
   </div>
   <% else %>
     <h4>Enter emission data for <%= @emission.food.name %></h4>
+    <%= hidden_field(:emission, :food_id) %>
   <% end %>
 
 
