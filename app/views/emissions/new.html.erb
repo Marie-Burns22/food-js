@@ -8,16 +8,12 @@
     <h4>Enter Food Information:</h4>
     <div>
       <%= f.label :food_id, "Select a Food that already exists:" %>
-      <%= f.collection_select :food_id, Food.all, :id, :name, include_blank: true %>
+      <%= f.collection_select :food_id, Food.all, :id, :name, include_blank: true %><br>
     </div>
-
+    <p>Or Add a New Food:</p>
     <div>
       <%= f.fields_for :food do |food_attributes| %>
-        <%= food_attributes.label :name,  "Or add a new food name"%>
-        <%= food_attributes.text_field :name %> <br>
-
-        <%= food_attributes.label :category, "Category for new food:" %>
-        <%= food_attributes.select :category, ['', 'Meat', 'Dairy', 'Egg', 'Fruit', 'Vegetable', 'Nuts', 'Legume', 'Mixed dish', 'Fish'] %><br>
+        <%= render :partial => "shared/food_form", locals: {f: food_attributes } %>
       <% end %><br>
       <h4>Enter emission data:</h4>
     </div>
