@@ -35,16 +35,16 @@
           <%= food.category %>
         </div>
         <div class="col-md-2">
-          <%= food.kg_unit_per_lb %>
+          <%= food.unit_finder("kg CO2e per lb of food") %>
         </div>
         <div class="col-md-2">
-          <%= food.lbs_per_serving %>
+          <%= food.unit_finder("lbs of CO2e per serving") %>
         </div>
         <div class="col-md-2">
-          <%= food.g_per_serving %>
+          <%= food.unit_finder("g of CO2e per serving") %>
         </div>
         <div class="col-md-2">
-          <%= food.kg_per_protein %>
+          <%= food.unit_finder("kg of CO2 per 50 g of protein") %>
         </div>
       <% end %>
     </div>
