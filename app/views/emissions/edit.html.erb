@@ -2,25 +2,11 @@
 <%= form_for(@emission) do |f| %>
 
   <h2>Update Emissions Information:</h2>
-  <%= link_to "Edit name or category for #{@emission.food.name}", edit_food_path(@emission.food) %>
-  <div>
-    <%= f.label :amount, "Amount (enter a number)" %>
-    <%= f.text_field :amount %><br>
-  </div>
 
-  <div>
-    <%= f.label :unit %>
-    <%= f.select :unit, ['kg CO2e per lb of food', 'lbs of CO2e per serving', 'g of CO2e per serving', 'kg of CO2 per 50 g of protein'] %>
-  </div>
+  <%= render partial: "emission_form", locals: {f: f } %>
 
-  <div>
-    <%= f.label :source, 'URL for source of data' %>
-    <%= f.text_field :source %>
-  </div>
+<% end %> <br>
 
-  <%= f.submit "Update emission data" %>
+<%= button_to "Delete this emission", { :action => "destroy", :id => @emission.id }, :confirm => "Are you sure?", :method => :delete %> <br>
 
-
-<% end %>
-
-<%= button_to "Delete this emission", { :action => "destroy", :id => @emission.id }, :confirm => "Are you sure?", :method => :delete %>
+<%= link_to "Edit name or category for #{@emission.food.name}", edit_food_path(@emission.food) %>

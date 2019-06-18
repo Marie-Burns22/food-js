@@ -1,0 +1,18 @@
+
+
+<div>
+  <%= f.label :amount, "Amount (enter a number)" %>
+  <%= f.number_field :amount, class: :text_field, min: 0, step: :any %><br>
+</div>
+
+<div>
+  <%= f.label :unit %>
+  <%= f.select :unit, ['kg CO2e per lb of food', 'lbs of CO2e per serving', 'g of CO2e per serving', 'kg of CO2 per 50 g of protein'] %>
+</div>
+
+<div>
+  <%= f.label :source, 'URL for source of data' %>
+  <%= f.text_field :source %>
+</div>
+
+<%= f.submit %>
