@@ -1,1 +1,7 @@
+<h2>Emissions added by: <%= @student.name %> </h2>
 
+<ul>
+  <% @emissions.each do |e| %>
+  <li><%= link_to "#{e.food.name}", food_path(e.food) %> <%= e.amount %> <%= e.unit %> Data Source: <%= e.source %></li>
+  <% end %>
+</ul>

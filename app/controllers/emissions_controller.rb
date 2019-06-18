@@ -5,6 +5,11 @@ class EmissionsController < ApplicationController
     @emission.build_food
   end
 
+  def index
+    @student = Student.find(params[:student_id])
+    @emissions = @student.emissions
+  end
+
   def create
     @emission = Emission.new(emission_params)
     @emission.student_id = session[:student_id]
