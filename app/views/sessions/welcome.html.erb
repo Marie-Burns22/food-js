@@ -1,13 +1,29 @@
 <div class="container text-center">
+  <h1>Welcome to Food Emissions Log</h1>
+</div>
+<div class="container text-left" id="app info">
+  <p>This app is designed for AP Environmental Science classes that are studying greenhouse gas emissions from thier own diets.  There are several websites with good data about the emissions produced by specific types of foods.  However, it can take a lot of time to visit each site to find the foods for your own diet. With this app, classes of students can collaborate to find and collect data on the foods they eat into one list.  As the list grows, students will not need to spend as much time visiting multiple websites to find the data they need to calculate the greenhouse gas emissions from their diets.</p><br>
 
-<h1>Welcome to Food Emissions Log</h1>
-<p>
-<%= link_to "Signup", signup_path %></p>
-OR
-<%= link_to "Login", login_path %><br>
+  <h3>Directions for use:</h3><br>
+  <h5>Who?</h5>
+  <p>Anyone can view the log of food emission data collected by students. To add food emissions data, you must be signed in and logged in. </p><br>
 
+  <h5>Where do I find data?</h5>
+  <p>A list of websites with food emissions data is provided below. You can also find data on other websites to add to this app.</p><br>
+
+  <h5>Units for Emissions</h5>
+  <p>Each emission must include the unit that the emissions are measured in.  If you find data that is measured in a different unit, use an online unit converter to convert the amount into one of the four unit options in the app.</p>
+
+  <p>Emissions may be provided in carbon dioxide, methane, or CO2 -e units.  CO2 -e is the most accurate for food emissions since it takes into account different sources of emissions throughout the food production cycle.  Make sure to read about how the emissions are calculated on each website that you use. </p>
+
+</div>
+
+<div class="container text-left" id="Signup links">
 <%= link_to "Sign in or Log In with Google", "/auth/google_oauth2" %><br>
 
-<%= link_to "Sign in or Log In with Github", "/auth/github" %>
-
+<%= link_to "Sign in with Github", "/auth/github" %> <br>
+<p>
+<%= link_to "Signup", signup_path %>
+OR
+<%= link_to "Login", login_path %></p>
 </div>

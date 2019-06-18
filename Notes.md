@@ -33,3 +33,14 @@
       scope :order_by_rating, -> {joins(:reviews).group(:id).order('avg(stars) desc')}
 
       using left_joins instead of joins includes every entry including those that don't have reviews/ratings  but that fires a lot of queries
+
+
+404 and errors:
+1. Use find_by_id instead of find. Then add a case in each route of where to send the user if object is not found.
+
+  def set_object
+   @object = Object.find_by_id(id: params[:id])
+   redirect_to objects_path if !!@object
+  end
+
+2. if rescue is used, must use .find instead of .find_by_id
