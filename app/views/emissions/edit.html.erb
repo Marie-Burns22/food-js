@@ -1,10 +1,7 @@
+<h2>Update Emissions Information:</h2>
 
 <%= form_for(@emission) do |f| %>
-
-  <h2>Update Emissions Information:</h2>
-
   <%= render partial: "emission_form", locals: {f: f } %>
-
 <% end %> <br>
 
 <%= button_to "Delete this emission", { :action => "destroy", :id => @emission.id }, :confirm => "Are you sure?", :method => :delete %> <br>
