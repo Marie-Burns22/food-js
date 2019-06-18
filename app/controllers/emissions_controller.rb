@@ -2,7 +2,8 @@ class EmissionsController < ApplicationController
 
   def new
     @emission = Emission.new
-    @emission.build_food
+    @emission.food = Food.find(params[:food_id])
+    @emission.build_food if !@emission.food
   end
 
   def index

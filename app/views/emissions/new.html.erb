@@ -4,6 +4,7 @@
 
 <%= form_for(@emission) do |f| %>
 
+<% if !@emission.food %>
 <h2>Food Information:</h2><br>
   <div>
     <%= f.label :food_id, "Select a Food that already exists:" %>
@@ -17,11 +18,15 @@
       <%= food_attributes.text_field :name %> <br>
 
       <%= food_attributes.label :category %>
-      <%= food_attributes.select :category, ['', 'Meat', 'Dairy', 'Egg', 'Fruit', 'Vegetable', 'Nuts', 'Legume', 'Mixed dish', 'Fish'] %>
+      <%= food_attributes.select :category, ['', 'Meat', 'Dairy', 'Egg', 'Fruit', 'Vegetable', 'Nuts', 'Legume', 'Mixed dish', 'Fish'] %><br>
     <% end %>
+    <h2>Emissions Information:</h2>
   </div>
+  <% else %>
+    <h4>Enter emission data for <%= @emission.food.name %></h4>
+  <% end %>
 
-  <h2>Emissions Information:</h2>
+
   <div>
     <%= f.label :amount, "Amount (enter a number)" %>
     <%= f.number_field :amount, class: :text_field, min: 0, step: :any %><br>

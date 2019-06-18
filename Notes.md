@@ -33,3 +33,9 @@
       scope :order_by_rating, -> {joins(:reviews).group(:id).order('avg(stars) desc')}
 
       using left_joins instead of joins includes every entry including those that don't have reviews/ratings  but that fires a lot of queries
+
+
+
+New emissions
+1. Use nested route to add link on the food view page.
+2. Add logic to the emission new view page to take in food information from nested route.
