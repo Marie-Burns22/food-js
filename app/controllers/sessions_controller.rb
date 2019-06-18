@@ -26,10 +26,14 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    @student = Student.from_omniauth(auth)
-
-    session[:student_id] = @student.id
-    redirect_to student_path(@student)
+    if !auth[:info][:email]
+      flash[:error] = "Your email must be public to login with google or github"
+      redirect_to '/login'
+    else
+      @student = Student.from_omniauth(auth)
+      session[:student_id] = @student.id
+      redirect_to student_path(@student)
+    end
   end
 
   private
