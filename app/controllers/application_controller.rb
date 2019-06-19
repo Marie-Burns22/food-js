@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_student
   helper_method :logged_in?
   helper_method :edit_permission
-  # helper_method :object_permission_check
 
   before_action :require_login
 
@@ -28,15 +27,5 @@ class ApplicationController < ActionController::Base
   def edit_permission(emission) #could logged_in? be session[:student_id]
     emission.student == current_student
   end
-
-  # def object_permission_check(object)
-  #   if !object
-  #     flash[:message] = "Does not exist"
-  #     redirect_to foods_path
-  #   elsif !edit_permission(object)
-  #     flash[:message] = "Must have added the emission to edit it"
-  #     redirect_to foods_path
-  #   end
-  # end
 
 end

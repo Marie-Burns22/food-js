@@ -62,10 +62,4 @@ class EmissionsController < ApplicationController
       redirect_to foods_path
     end
   end
-
-  def creator
-    current_student.id == @emission.student.id
-  end
-
-
 end
