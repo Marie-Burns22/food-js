@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row" id="column-headings">
+    <div class="col-md-2">
+      Food
+    </div>
+    <div class="col-md-2">
+      Food Category
+    </div>
+    <div class="col-md-2">
+      Amount
+    </div>
+    <div class="col-md-3">
+      Unit
+    </div>
+    <div class="col-md-3">
+      Data Source
+    </div>
+  </div>
+
+  <div class="row" id="data">
+    <% emissions.each do |e| %>
+      <div class="col-md-2">
+        <%= link_to "#{e.food.name}", food_path(e.food) %>
+      </div>
+      <div class="col-md-2">
+        <%= e.food.category %>
+      </div>
+      <div class="col-md-2">
+        <%= e.amount %>
+      </div>
+      <div class="col-md-3">
+        <%= e.unit %>
+      </div>
+      <div class="col-md-3">
+        <%= e.source %>
+      </div>
+    <% end %>
+  </div>
+</div>

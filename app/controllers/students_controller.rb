@@ -15,7 +15,7 @@ class StudentsController < ApplicationController
     end
   end
 
-  def show  #change this to a nested route like foods on the emission index view
+  def show 
     @student = Student.find(params[:id])
     @student_emissions = @student.emissions
   end

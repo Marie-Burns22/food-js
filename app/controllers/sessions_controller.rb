@@ -8,17 +8,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # if params[:student][:name].nil? || params[:student][:name] == ""
-    #   redirect_to '/login'
-      @student = Student.find_by(name: params[:student][:name])
-      if @student.try(:authenticate, params[:password])
-        session[:student_id]= @student.id
-        redirect_to student_path(@student)
-      else
-        flash[:error] = "Sorry, login info was incorrect. Please login."
-        redirect_to '/'
-      end
+    @student = Student.find_by(name: params[:student][:name])
+    if @student.try(:authenticate, params[:password])
+      session[:student_id]= @student.id
+      redirect_to student_path(@student)
+    else
+      flash[:error] = "Sorry, login info was incorrect. Please login."
+      redirect_to '/'
     end
+  end
 
   def destroy
     session.delete :student_id if session[:student_id]
@@ -32,7 +30,8 @@ class SessionsController < ApplicationController
     else
       @student = Student.from_omniauth(auth)
       session[:student_id] = @student.id
-      redirect_to student_path(@student)
+      # redirect_to student_path(@student)
+      redirect_to student_emissions_path(@student.id)
     end
   end
 
