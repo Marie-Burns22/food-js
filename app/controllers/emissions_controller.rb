@@ -25,15 +25,13 @@ class EmissionsController < ApplicationController
   end
 
   def edit
-    @emission = Emission.find_by_id(params[:id])
-    flash[:message] = "Must have added the emission to edit it" if !edit_permission(@emission)
-    redirect_to foods_path if !edit_permission(@emission)
-    # end
+    @emission = Emission.find_by_id(id: params[:id])
+    object_permission_check(@emission)
   end
 
   def update
-    @emission = Emission.find(params[:id])
-    edit_permission(@emission)
+    @emission = Emission.find_by_id(params[:id])
+    object_permission_check(@emission)
     @emission.update_attributes(emission_params)
     flash[:message] = "Successfully updated emission for #{@emission.food.name}"
     redirect_to foods_path
@@ -54,9 +52,4 @@ class EmissionsController < ApplicationController
       :category,
       ])
   end
-
-  def creator
-    current_student.id == @emission.student.id
-  end
-
 end
