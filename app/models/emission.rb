@@ -7,6 +7,7 @@ class Emission < ApplicationRecord
   validates :source, :presence => true
 
   #accepts_nested_attributes_for :food
+  scope :unit, -> (unit) {where("unit LIKE ?", unit)}
 
   def food_attributes=(attributes)
     food = Food.find_or_create_by(attributes)
