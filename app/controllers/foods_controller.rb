@@ -12,7 +12,7 @@ class FoodsController < ApplicationController
 
   def update
     @food = Food.find_by_id(params[:id])
-    redirect_to foods_path if !@food
+    food_check
     @food.update_attributes(food_params)
     redirect_to foods_path
   end
