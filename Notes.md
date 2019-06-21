@@ -44,3 +44,34 @@
   end
 
 2. if rescue is used, must use .find instead of .find_by_id
+
+
+Scope method buttons to view emissions by category.  
+use to show view of emissions by food Category
+ - index action in emissions controller has logic to assign @emissions based on the params passed in.
+ - buttons on the food index view and the emissions index view will pass in params that call scope methods.
+ - Button will show the name of the category, not a drop down menu.
+
+ Scope method buttons on food index view will order by the amount of each emission on the index page
+
+ Button step one - create one scope method that works for one category.
+ Button step two - create one button that uses the scope method that works
+ Button step three - refactor scope method to pass in any category.
+
+ Is this how it works: Button pass in params with the category to be queried.  Index action takes in the params, logic determines which scope method to call on the model.  local variable is set based on the scope method.  The local variable is passed to the index view which renders the list of emissions from the local variable.
+
+ Is this query of the foods or emissions?
+ Emissions where food.category is ?
+
+ Would the order by emissions be the food or emissions model?
+ Food since the list is by foods.
+ Food. order asc by unit where unit is ?
+
+ button passes in param of the unit.  Logic uses the param of the unit to choose which @emissions .  That is specifc to calling a joins and merge using a scope method on emissions that is hard coded with the unit.
+
+
+
+
+ Wishes:
+ 1. order is based on average if there are multiple amounts
+ 2. The scope passes in the unit from button params
