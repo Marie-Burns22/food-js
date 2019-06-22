@@ -5,6 +5,8 @@ class Food < ApplicationRecord
   validates :name, :presence => true, :uniqueness => true
   validates :category, :presence => true
 
+  scope :category, -> (category) {where("category LIKE ?", category)}
+
   # this scope method should query the food data base to sort all food in descending order based on the unit passed in params by a button. Food without any value for that unit should be listed at the bottom. The button will be in the column heading of each unit.
   # scope :choose_unit -> { joins(:emissions).merge(Emission.by_unit) }
 

@@ -1,3 +1,7 @@
-<h2>Emissions added by: <%= @student.name %> </h2>
-
-<%= render :partial => "shared/emission_grid", locals: { emissions: @emissions } %><br>
+<% if @student %>
+  <h2>Emissions added by: <%= @student.name %> </h2>
+  <%= render :partial => "shared/emission_grid", locals: { emissions: @emissions } %><br>
+<% else %>
+  <h2><%= @category %> Emissions:</h2>
+  <%= render :partial => "shared/all_units_grid", locals: { foods: @foods } %><br>
+<% end %>

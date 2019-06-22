@@ -13,7 +13,7 @@ class Emission < ApplicationRecord
   scope :g_unit, -> { where(unit: "g of CO2e per serving")}
   scope :kg_protein_unit, -> { where(unit: "kg of CO2 per 50 g of protein")}
 
-  scope :category, -> (category) {where("category LIKE ?", category)}
+  scope :category, -> (category) {where("food.category LIKE ?", category)}
   scope :food, -> (food) {where("food LIKE ?", food)}
 
   def food_attributes=(attributes)

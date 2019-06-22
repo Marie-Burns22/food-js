@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="row" id="column-headings">
+    <div class="col-md-2">
+      Food
+    </div>
+    <div class="col-md-2">
+      Food Category
+    </div>
+    <div class="col-md-2">
+      kg CO2e per lb of food
+      <%= button_to("Sort", foods_path, :method => :get, params: { u:"kg CO2e per lb of food"}) %>
+    </div>
+    <div class="col-md-2">
+      lbs of CO2e per serving
+      <%= button_to("Sort", foods_path, :method => :get, params: { u:"lbs of CO2e per serving"}) %>
+    </div>
+    <div class="col-md-2">
+      g of CO2e per serving
+      <%= button_to("Sort", foods_path, :method => :get, params: { u:"g of CO2e per serving"}) %>
+    </div>
+    <div class="col-md-2">
+      kg of CO2 per 50 g of protein
+      <%= button_to("Sort", foods_path, :method => :get, params: { u:"kg of CO2 per 50 g of protein"}) %>
+    </div>
+  </div>
+
+  <div class="row" id="data">
+    <% foods.each do |food| %>
+      <div class="col-md-2">
+        <%= link_to "#{food.name}", food_path(food) %>
+      </div>
+      <div class="col-md-2">
+        <%= link_to "#{food.category}", emissions_path(:category => "#{food.category}") %>
+      </div>
+      <div class="col-md-2">
+        <%= food.unit_finder("kg CO2e per lb of food") %>
+      </div>
+      <div class="col-md-2">
+        <%= food.unit_finder("lbs of CO2e per serving") %>
+      </div>
+      <div class="col-md-2">
+        <%= food.unit_finder("g of CO2e per serving") %>
+      </div>
+      <div class="col-md-2">
+        <%= food.unit_finder("kg of CO2 per 50 g of protein") %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class EmissionsController < ApplicationController
+skip_before_action :require_login, only: [:index]
 
   def new
     @emission = Emission.new
@@ -10,9 +11,20 @@ class EmissionsController < ApplicationController
   end
 
   def index
-    @student = Student.find(params[:student_id])
-    @emissions = @student.emissions
+    if params[:category]
+      @category = params[:category]
+      @foods = Food.category(@category)
+    else
+      params[:student_id]
+      @student = Student.find(params[:student_id])
+      @emissions = @student.emissions
+    end
   end
+
+  # def show
+  #   @category = params[:c]
+  #   @emissions = Emissions.category(category)
+  # end
 
   def create
     @emission = Emission.new(emission_params)
