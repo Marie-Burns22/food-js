@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row" id="column-headings">
-    <div class="col-md-2">
+    <div class="col-md-3">
       Food
     </div>
     <div class="col-md-2">
       Food Category
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
       Amount
     </div>
     <div class="col-md-3">
@@ -19,13 +19,16 @@
 
   <div class="row" id="data">
     <% emissions.each do |e| %>
-      <div class="col-md-2">
-        <%= link_to "#{e.food.name}", food_path(e.food) %>
+      <div class="col-md-3">
+        <%= link_to "#{e.food.name}", food_path(e.food) %><br>
+        <% if edit_permission(e) %>
+          <%= link_to "Edit emission", edit_emission_path(e) %>
+        <% end %>
       </div>
       <div class="col-md-2">
         <%= e.food.category %>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-1">
         <%= e.amount %>
       </div>
       <div class="col-md-3">
