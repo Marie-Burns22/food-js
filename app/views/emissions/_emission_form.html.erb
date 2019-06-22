@@ -1,6 +1,6 @@
 <div>
   <%= f.label :amount, "Amount (enter a number)" %>
-  <%= f.number_field :amount, class: :text_field, min: 0, step: :any %><br>
+  <%= f.number_field :amount, class: :text_field, min: 0, step: :any, required: true %><br>
 </div>
 
 <div>
@@ -10,7 +10,7 @@
 
 <div>
   <%= f.label :source, 'URL for source of data' %>
-  <%= f.text_field :source %>
+  <%= f.text_field :source, required: true %>
 </div>
 
 <%= f.submit %>
