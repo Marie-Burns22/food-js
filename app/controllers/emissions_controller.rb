@@ -21,18 +21,15 @@ skip_before_action :require_login, only: [:index]
     end
   end
 
-  # def show
-  #   @category = params[:c]
-  #   @emissions = Emissions.category(category)
-  # end
-
   def create
     @emission = Emission.new(emission_params)
     @emission.student_id = session[:student_id]
-    if @emission.save!
+    if @emission.save
+      flash[:message] = "Successfully added emission for #{@emission.food.name}"
       redirect_to foods_path
     else
-      render :new
+      flash[:error] = "Emissions must include food, amount, unit and source."
+      redirect_to new_emission_path
     end
   end
 

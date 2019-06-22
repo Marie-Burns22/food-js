@@ -7,6 +7,7 @@
   <h3>Directions for use:</h3><br>
   <h5>Who?</h5>
   <p>Anyone can view the log of food emission data collected by students. To add food emissions data, you must be logged in. </p>
+  <% if !logged_in? %>
     <div class="container text-left" id="Signup links">
     <%= link_to "Sign in with Google", "/auth/google_oauth2" %>   OR
 
@@ -16,6 +17,7 @@
     or
     <%= link_to "Login", login_path %></p>
     </div>
+  <% end %>
 
   <h5>Where do I find data?</h5>
   <p>A list of websites with food emissions data is provided below. You can also find data on other websites to add to this app.</p>
