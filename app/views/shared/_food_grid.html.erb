@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row" id="column-headings">
+    <div class="col-md-2">
+      Food Category
+    </div>
+    <div class="col-md-2">
+      Amount
+    </div>
+    <div class="col-md-3">
+      Unit
+    </div>
+    <div class="col-md-3">
+      Data Source
+    </div>
+    <div class="col-md-2">
+      Student Contributor
+    </div>
+  </div>
+
+  <div class="row" id="data">
+    <% emissions.each do |e| %>
+      <div class="col-md-2">
+        <%= e.food.category %>
+      </div>
+      <div class="col-md-2">
+        <%= e.amount %>
+      </div>
+      <div class="col-md-3">
+        <%= e.unit %>
+      </div>
+      <div class="col-md-3">
+        <%= e.source %>
+      </div>
+      <div class="col-md-2">
+        <% if logged_in? %>
+          <%= link_to "#{e.student.name}", student_emissions_path(e.student) %>
+        <% else %>
+          <%= e.student.name %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
