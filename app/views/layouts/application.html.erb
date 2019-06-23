@@ -28,8 +28,8 @@
   </nav>
 
   <body>
-    
-    <div class="container"  role="main">
+
+    <div class="container"  id="flash" role="main">
      <% flash.each do |key, value| %>
        <div class="alert alert-<%= key %>"><%= value %></div>
      <% end %>

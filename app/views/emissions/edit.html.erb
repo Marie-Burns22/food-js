@@ -1,3 +1,4 @@
+<div class="container text-left" >
 <h2>Update Emissions Information:</h2>
 
 <%= form_for(@emission) do |f| %>
@@ -7,3 +8,5 @@
 <%= button_to "Delete this emission", { :action => "destroy", :id => @emission.id }, :confirm => "Are you sure?", :method => :delete %> <br>
 
 <%= link_to "Edit name or category for #{@emission.food.name}", edit_food_path(@emission.food) %>
+
+</div>
