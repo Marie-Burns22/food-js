@@ -39,6 +39,10 @@ class FoodsController < ApplicationController
 
   def show
     @food = Food.find_by_id(params[:id])
+    respond_to do |f|
+      f.html
+      f.json {render json: @food}
+    end
     food_check
   end
 
