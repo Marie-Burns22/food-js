@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
+
     if !auth[:info][:email]
       flash[:error] = "Your email must be public to login with google or github."
       redirect_to '/'

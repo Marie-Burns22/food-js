@@ -14,12 +14,12 @@ class FoodsController < ApplicationController
     # elsif params[:u] == "kg of CO2 per 50 g of protein"
     #   @foods = Food.joins(:emissions).merge(Emission.kg_protein_unit).order(:amount)
     # else
-    #   @foods = Food.all
+      @foods = Food.all
     # end
 
-    respond_to do |format|
-      format.html
-      format.json {render json: @foods}
+    respond_to do |f|
+      f.html
+      f.json {render json: @foods}
     end
 
 
