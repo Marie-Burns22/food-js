@@ -26,8 +26,9 @@ const bindClickHandlers = () => {
 
     $(document).on('click', ".show_link", function (e) {
         e.preventDefault()
-        $('#app-container').html('')
         let id = $(this).attr('data-id')
+        history.pushState(null, null, `foods/${id}`)
+        $('#app-container').html('')
         fetch(`/foods/${id}.json`)
         .then(res => res.json())
         .then(food => {
