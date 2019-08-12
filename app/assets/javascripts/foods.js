@@ -23,7 +23,7 @@ const bindClickHandlers = () => {
                 })
             })
     })
-
+// to do: fix pushState. Keeps adding on everytime it is clicked.
     $(document).on('click', ".show_link", function (e) {
         e.preventDefault()
         let id = $(this).attr('data-id')
