@@ -3,3 +3,17 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready()
+
+$(() => {
+    bindClickHandlers()
+})
+
+const bindClickHandlers = () => {
+
+    $('#new_emission').on('submit', function (e) {
+        e.preventDefault()
+        const values = $(this).serialize()
+        $.post("/emissions", values)
+            .done(function(data) {})
+    })
+}
