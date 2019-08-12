@@ -11,7 +11,7 @@ $(() => {
 const bindClickHandlers = () => {
     $('#all-foods').on('click', (e) => {
         e.preventDefault()
-        history.pushState(null, null, "foods")
+        // history.pushState(null, null, "foods")
         fetch(`/foods.json`)
             .then(res => res.json())
             .then(foods => {
@@ -23,11 +23,11 @@ const bindClickHandlers = () => {
                 })
             })
     })
-// to do: fix pushState. Keeps adding on everytime it is clicked.
+
     $(document).on('click', ".show_link", function (e) {
         e.preventDefault()
         let id = $(this).attr('data-id')
-        history.pushState(null, null, `foods/${id}`)
+        // history.pushState(null, null, `foods/${id}`)
         $('#app-container').html('')
         fetch(`/foods/${id}.json`)
         .then(res => res.json())
@@ -56,11 +56,19 @@ class Food {
     }
 
     formatShow() {
-        let foodHtml = `
-        <h3>${this.name}</h3><br>
-        <h3>${this.name}</h3><br>
-        `
-        return foodHtml
+        let foodEmissions = this.emissions.map(emission => {
+            return (`
+            <p>${emission.amount} ${emission.unit}</p>
+            `)
+        }).join(" ")
+
+        return (`
+        <div class="container">
+            <h3>${this.name}</h3>
+            <span class="text-muted">Emissions Data Entered by Students</span>
+            <p>${foodEmissions}</p>
+        </div>
+        `)
     }
 }
 
