@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application" %>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -15,29 +15,37 @@
     <title>Food Emissions</title>
   </head>
 
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" id="all-foods" href="<%= foods_path %>">Food Index</a>
-    <a class="navbar-brand" href="<%= root_path %>">Welcome</a>
-    <% if !logged_in? %>
-      <a class="navbar-brand" href="<%= login_path %>">Login</a>
-      <a class="navbar-brand" href="<%= new_student_path %>">Signup</a>
-    <% else %>
-      <a class="navbar-brand" href="<%= logout_path  %>">Logout</a>
-      <a class="navbar-brand" href="<%= new_emission_path %>">Add Emission Data</a>
-    <% end %>
-
-  </nav>
-
   <body>
+    <div class="jumbotron-fluid jumbotron">
+      <h1 class="display-8 text-center text-info">Carbon Emissions From Food</h1>
+    </div>
+    <nav class="navbar sticky-top navbar-expand-sm navbar-light" style="background: #1cAD66">
+      <a class="navbar-brand" id="all-foods" href="<%= foods_path %>">Food Emissions Log</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#links">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="links">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="<%= root_path %>">About</a>
+          <% if !logged_in? %>
+            <a class="nav-item nav-link" href="<%= login_path %>">Login</a>
+            <a class="nav-item nav-link" href="<%= new_student_path %>">Signup</a>
+          <% else %>
+            <a class="nav-item nav-link" href="<%= logout_path  %>">Logout</a>
+            <a class="nav-item nav-link" href="<%= new_emission_path %>">Add Emission Data</a>
+          <% end %>
+        </div>
+      </div>
+    </nav>
 
     <div class="container"  id="flash" role="main">
      <% flash.each do |key, value| %>
        <div class="alert alert-<%= key %>"><%= value %></div>
      <% end %>
-   </div>
-   <div class="container" id="app-container">
+    </div>
 
-    <%= yield %>
+    <div class="container" id="app-container">
+      <%= yield %>
     </div>
 
     <!-- Optional JavaScript -->

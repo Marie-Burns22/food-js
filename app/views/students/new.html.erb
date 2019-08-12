@@ -1,21 +1,24 @@
-<h1>Student Sign Up Page</h1>
+<div class="container pt-5 mt-3">
+  <h1>Student Sign Up Page</h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @student} %>
 
-<div class="container text-left" id="Signup links">
-  <%= link_to "Log in with Google", "/auth/google_oauth2" %> OR
-  <%= link_to "Log in with Github", "/auth/github" %> <br>
-</div><br>
+  <%= render partial: 'layouts/errors', locals: {object: @student} %>
 
-<%= form_for @student do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br>
+  <div class="container text-left" id="Signup links">
+    <%= link_to "Signup with Google", "/auth/google_oauth2" %> OR
+    <%= link_to "Signup with Github", "/auth/github" %> <br>
+  </div><br>
 
-  <%= f.label :password %>:
-  <%= f.password_field :password %><br>
+  <%= form_for @student do |f| %>
+    <%= f.label :name %>:
+    <%= f.text_field :name %><br>
 
-  <%= f.label :email %>:
-  <%= f.email_field :email %><br>
+    <%= f.label :password %>:
+    <%= f.password_field :password %><br>
 
-  <%= f.submit 'Create Student Account' %>
-  <% end %>
+    <%= f.label :email %>:
+    <%= f.email_field :email %><br>
+
+    <%= f.submit 'Create Student Account' %>
+    <% end %>
+</div>
