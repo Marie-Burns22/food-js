@@ -1,12 +1,12 @@
-<div class="container text-center">
-  <h1>Welcome to Food Emissions Log</h1>
+<div class="container text-center pt-4 mt-4">
+  <h1 class="pb-2 pt-4">Welcome to Food Emissions Log</h1>
 </div>
 <div class="container text-left" id="app info">
   <p>This app is designed for AP Environmental Science classes that are studying greenhouse gas emissions from thier own diets.  There are several websites with good data about the emissions produced by specific types of foods.  However, it can take a lot of time to visit each site to find the foods for your own diet. With this app, classes of students can collaborate to find and collect data on the foods they eat into one list.  As the list grows, students will not need to spend as much time visiting multiple websites to find the data they need to calculate the greenhouse gas emissions from their diets.</p><br>
 
-  <h3 class="display-8">Directions for use:</h3><br>
-  <h5>Who?</h5>
-  <p>Anyone can view the log of food emission data collected by students. To add food emissions data, you must be logged in. </p>
+  <h3 class="border bg-dark text-light px-3 py-2">Directions for use:</h3><br>
+  <h5>Who can view and add data?</h5>
+  <p class="border border-round bg-light px-3 py-2">Anyone can view the log of food emission data collected by students. To add food emissions data, you must be logged in. </p>
   <% if !logged_in? %>
     <div class="container text-left" id="Signup links">
     <%= link_to "Sign in with Google", "/auth/google_oauth2" %>   OR
@@ -18,18 +18,22 @@
     <%= link_to "Login", login_path %></p>
     </div>
   <% end %>
+</div>
 
-  <h5>Where do I find data?</h5>
-  <p>A list of websites with food emissions data is provided below. You can also find data on other websites to add to this app.</p>
-  <a href="http://css.umich.edu/factsheets/carbon-footprint-factsheet" target="_blank">CARBON FOOTPRINT FACTSHEET from University of Michigan</a><br>
-  <a href="http://www.foodemissions.com/foodemissions/Calculator.aspx">Food Emissions Calculator from CleanMetrics</a><br>
-  <a href="http://www.eatlowcarbon.org/">Eat Low Carbon</a>
-  <a href="https://www.nu3.de/c/food-carbon-footprint-index-2018/">Food Carbon Footprint Index</a><br>
-  <br>
+<div class="container" id="source links">
+    <h5>Where do I find data to add?</h5>
+    <p class="border border-round bg-light px-3 py-2">A list of websites with food emissions data is provided below. You can also find data on other websites to add to this app.</p>
+     <div class="list-group list-group-flush"> 
+      <a class="list-group-item-info list-group-item d-flex justify-content-between list-group-item-action" href="http://css.umich.edu/factsheets/carbon-footprint-factsheet" target="_blank">Carbon Footprint Factsheet<span class="text-muted">University of Michigan</span></a>
+      <a class="list-group-item-info list-group-item d-flex justify-content-between list-group-item-action" href="http://www.foodemissions.com/foodemissions/Calculator.aspx" target="_blank">Food Emissions Calculator<span class="text-muted">CleanMetrics</span></a>
+      <a class="list-group-item-info list-group-item d-flex justify-content-between list-group-item-action" href="http://www.eatlowcarbon.org/" target="_blank">Eat Low Carbon<span class="text-muted">eatlowcarbon.org</span></a>
+      <a class="list-group-item-info list-group-item d-flex justify-content-between list-group-item-action" href="https://www.nu3.de/c/food-carbon-footprint-index-2018/" target="_blank">Food Carbon Footprint Index<span class="text-muted">nu3</span></a>
+    </div>
+</div>
 
-
-  <h5>Units for Emissions</h5>
-  <p>Each emission must include the unit that the emissions are measured in.  If you find data that is measured in a different unit, calculate or use an online unit converter to enter the amount with one of the four unit options provided.</p>
+<div class="container pt-3" id="emission units">
+  <h5>What units do I use for emissions?</h5>
+  <p>Each emission must include the unit that the emission is measured in.  If you find data that is measured in a different unit, calculate or use an online unit converter to enter the amount with one of the four unit options provided.</p>
 
   <p>Depending on the website you use, emissions may be provided in carbon dioxide, methane, or CO2e units.  CO2e is the most accurate for food emissions since it takes into account different sources of emissions throughout the food production cycle.  Make sure to read about how the emissions are calculated on each website that you use. </p><br>
 
