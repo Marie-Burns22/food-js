@@ -1,7 +1,3 @@
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
-
 $(document).ready()
 
 $(() => {
@@ -12,9 +8,11 @@ const bindClickHandlersEmissions = () => {
 
     $("#new_emission").on('submit', function(e) {
         e.preventDefault();
-        let values = $(this).serialize();
+        let values = $(this).serialize()
         $.post("/emissions", values).done(function(data) {
-                console.log(data)
+            let newEmission = new Emission(data)
+            let newHtml = newEmission.emissionShow()
+            $("#app-container").html(newHtml)
             })
     })
 }
@@ -27,5 +25,14 @@ class Emission {
         this.amount = emission.amount
         this.unit = emission.unit
         this.source = emission.source
+    }
+
+
+    emissionShow() {
+        return (`
+            <div class="container">
+                <h3 class="display-4">${this.amount} ${this.unit} from ${this.source}</h3>
+            </div>
+        `)
     }
 }
