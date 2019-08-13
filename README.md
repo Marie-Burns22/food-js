@@ -1,28 +1,37 @@
-# Food Emissions Log - AP Environmental Science app
+# Food Emissions Log - AP Environmental Science App
 Students collaborate to collect and organize greenhouse gas emissions data for foods.
 
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Features](#features)
+* [Installation](#installation)
 * [Status](#status)
 * [Inspiration](#inspiration)
 * [Contact](#contact)
 
 ## General info
-This application was made for the Rails Project for Flatiron Full Stack Web Development V7 Curriculum. This purpose of this project is to demonstrate the ability to build a Ruby on Rails application that includes forms to collect data and routes to display the data.  This specific application is for an AP Environmental Science course to help students research and share data about greenhouse gas emissions from foods.  A student in the class can create an account on the application or use their  school google account to login. Once logged in they can contribute to the list of emissions data that other students have compiled. Students can reference this class log of emissions data for their own research and add missing information by researching and then filling out a form to enter the data they find.
+This application was made for the Rails - JS Project for Flatiron Full Stack Web Development V7 Curriculum. It is built on top of the Rails app created for a previous project. The result is a Rails backend with JS manipulating the frontend for most views of foods and emissions and to submit a form to create a new emission. This specific application is for an AP Environmental Science course to help students research and share data about greenhouse gas emissions from foods.  A student in the class can create an account on the application or use their school google account to login. This feature is implemented with OmniAuth Once logged in they can contribute to the list of emissions data that other students have compiled. Students can reference this class log of emissions data for their own research and add missing information by researching and then filling out a form to enter the data they find.
 
 ## Technologies
 * Ruby - version 2.6.1
 * Rails - version 5.2.3
 * Bootstrap - version 4.3.1
+* jquery
 
-## Setup
+## Installation
+Fork and Clone
+Run bundle install
+Migrate db
 Run on localhost:3000
+Signup or login and begin entering data. Alternatively you can seed the database with the provided seed data but it is ridiculously fake.
+
 
 
 ## Features
 * Forms for new student account, and new emissions. Nested form to create new food on the new emissions form.
+* The food index and emission show pages now load by changing the DOM with javascript instead of a total page refresh.
+* The form for the new emission submits with a jquery AJAX function ($.post)
 * Nested routes to view more specific information on emissions index page. For example, only list the emissions entered by a single student.
 * OmniAuth for login using google or github.
 * Scope methods to sort information based on the amount of greenhouse gas emissions or by category of food.
@@ -34,6 +43,7 @@ To-do list:
 * Improve styling to increase readability and engagement.
 * Refactor scope methods to accept params instead of hard coding.
 * Replace seed data with real data.
+* Display emissions data on food index with javascript.  The original app used a grid to display the emissions data for each food, but more code needs to be added to display the same information using javascript.
 
 ## Status
 Project is: functional, but data is not accurate.
