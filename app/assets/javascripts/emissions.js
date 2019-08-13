@@ -25,13 +25,17 @@ class Emission {
         this.amount = emission.amount
         this.unit = emission.unit
         this.source = emission.source
+        this.student = emission.student
+        this.food = emission.food
     }
 
 
     emissionShow() {
         return (`
             <div class="container">
-                <h3 class="display-4">${this.amount} ${this.unit} from ${this.source}</h3>
+                <h2 class="display-5 text-white bg-secondary px-3 py-2">Food Emission Added for:  ${this.food.name} </h2>
+                <h2 class="display-5">Amount: ${this.amount} ${this.unit}</h2>
+                <h2 class="display-5">Added by: ${this.student.name}</h2><span class="text-muted">Source: ${this.source}</span>
             </div>
         `)
     }
