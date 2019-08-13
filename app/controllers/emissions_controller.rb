@@ -26,7 +26,8 @@ skip_before_action :require_login, only: [:index]
     @emission.student_id = session[:student_id]
     if @emission.save
       flash[:message] = "Successfully added emission for #{@emission.food.name}"
-      redirect_to foods_path
+      # redirect_to foods_path
+      render json: @emission
     else
       flash[:error] = "Emissions must include food, amount, unit and source."
       redirect_to new_emission_path

@@ -5,15 +5,29 @@
 $(document).ready()
 
 $(() => {
-    bindClickHandlers()
+    bindClickHandlersEmissions()
 })
 
-const bindClickHandlers = () => {
+const bindClickHandlersEmissions = () => {
 
-    $('#new_emission').on('submit', function (e) {
-        e.preventDefault()
-        const values = $(this).serialize()
-        $.post("/emissions", values)
-            .done(function(data) {})
+    $("#new_emission").on('submit', function (e) {
+        e.preventDefault();
+        let values = $(this).serialize();
+        let posting = $.post("/emissions", values);
+        
+        posting.done(function(data) {
+                console.log(data)
+            })
     })
+}
+
+class Emission {
+    constructor(emission) {
+        this.id = emission.id
+        this.student_id = emission.student_id
+        this.food_id = emission.food_id
+        this.amount = emission.amount
+        this.unit = emission.unit
+        this.source = emission.source
+    }
 }
