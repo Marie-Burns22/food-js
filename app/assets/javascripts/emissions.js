@@ -10,12 +10,10 @@ $(() => {
 
 const bindClickHandlersEmissions = () => {
 
-    $("#new_emission").on('submit', function (e) {
+    $("#new_emission").on('submit', function(e) {
         e.preventDefault();
         let values = $(this).serialize();
-        let posting = $.post("/emissions", values);
-        
-        posting.done(function(data) {
+        $.post("/emissions", values).done(function(data) {
                 console.log(data)
             })
     })
