@@ -1,28 +1,34 @@
-<h1>Add new emissions data</h1><br>
+<div class="container">
 
-<%= render partial: 'layouts/errors', locals: {object: @emission} %>
+  <h1 class="pt-4 display-4">Add new emissions data</h1><br>
 
-<%= form_for(@emission) do |f| %>
+  <%= render partial: 'layouts/errors', locals: {object: @emission} %>
 
-  <% if !@emission.food.id %>
-    <h4>Enter Food Information:</h4>
-    <div>
-      <%= f.label :food_id, "Select a Food that already exists:" %>
-      <%= f.collection_select :food_id, Food.all, :id, :name, include_blank: true %><br>
-    </div>
-    <p>Or Add a New Food:</p>
-    <div>
-      <%= f.fields_for :food do |food_attributes| %>
-        <%= render :partial => "shared/food_form", locals: {f: food_attributes } %>
-      <% end %><br>
-      <h4>Enter emission data:</h4>
-    </div>
+  <%= form_for(@emission) do |f| %>
 
-  <% else %>
-    <h4>Enter emission data for <%= @emission.food.name %></h4>
-      <%= hidden_field(:emission, :food_id) %>
-    <% end %>
+    <% if !@emission.food.id %>
+      <h4 class="display-6 bg-dark text-light px-3 py-2">Enter Food Information:</h4>
+      <div class="border border-round border-outline-info p-2">
+        <p class="display-8"><%= f.label :food_id, "Select a Food that already exists:" %>
+        <%= f.collection_select :food_id, Food.all, :id, :name, include_blank: true %></p>
+      </div>
+      
+      <div class="border border-round border-outline-info p-2">
+        <span class="display-8">Or Add a New Food:</span>
+        <%= f.fields_for :food do |food_attributes| %>
+          <%= render :partial => "shared/food_form", locals: {f: food_attributes } %>
+        <% end %>
+      </div><br>
+      <h4 class="display-6 bg-dark text-light px-3 py-2">Enter emission data:</h4>
+      
 
-<%= render partial: "emission_form", locals: {f: f } %>
+    <% else %>
+      <h4 class="display-6 bg-dark text-light px-3 py-2">Enter emission data for <%= @emission.food.name %></h4>
+        <%= hidden_field(:emission, :food_id) %>
+      <% end %>
 
-<% end %>
+  <%= render partial: "emission_form", locals: {f: f } %>
+
+  <% end %>
+
+</div>
