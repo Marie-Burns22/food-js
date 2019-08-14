@@ -9,6 +9,8 @@ Students collaborate to collect and organize greenhouse gas emissions data for f
 * [Status](#status)
 * [Inspiration](#inspiration)
 * [Contact](#contact)
+* [License](#license)
+* [Contributing](#contributing-guidelines)
 
 ## General info
 This application was made for the Rails - JS Project for Flatiron Full Stack Web Development V7 Curriculum. It is built on top of the Rails app created for a previous project. The result is a Rails backend with JS manipulating the frontend for most views of foods and emissions and to submit a form to create a new emission. This specific application is for an AP Environmental Science course to help students research and share data about greenhouse gas emissions from foods.  A student in the class can create an account on the application or use their school google account to login. This feature is implemented with OmniAuth Once logged in they can contribute to the list of emissions data that other students have compiled. Students can reference this class log of emissions data for their own research and add missing information by researching and then filling out a form to enter the data they find.
@@ -53,3 +55,14 @@ Project inspired by my students and their desire to learn and reduce their green
 
 ## Contact
 Created by mcburns2222@gmail.com - feel free to contact me!
+
+## License
+This project is licensed under the terms of the MIT license.
+
+## Contributing Guidelines
+Thank you for taking the time to provide input.
+* Please suggest changes through pull requests on Github.
+* Please use consistent coding style that matches the codebase.
+* All contributions will be under the MIT license.
+* Report bugs using Github issues.
+
