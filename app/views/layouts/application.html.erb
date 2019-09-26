@@ -30,9 +30,11 @@
           <% if !logged_in? %>
             <a class="nav-item nav-link" href="<%= login_path %>">Login</a>
             <a class="nav-item nav-link" href="<%= new_student_path %>">Signup</a>
+           
           <% else %>
             <a class="nav-item nav-link" href="<%= logout_path  %>">Logout</a>
             <a class="nav-item nav-link" href="<%= new_emission_path %>">Add Emission Data</a>
+             <button class="nav-item nav-link" href="#" id="sort-food">Sort Food</button>
           <% end %>
         </div>
       </div>

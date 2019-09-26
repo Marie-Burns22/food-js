@@ -33,6 +33,33 @@ const bindClickHandlers = () => {
             $('#app-container').append(foodHtml)
         })
     })
+    // method to listen for click on the sort button
+    $('#sort-food').on('click', (e) => {
+        fetch(`/foods.json`)
+            .then(res => res.json())
+            .then(foods => {
+                $('#app-container').html('')
+                foods.sort(function (a, b) {
+                    var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+                    var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+                    if (nameA < nameB) {
+                        return -1;
+                    }
+                    if (nameA > nameB) {
+                        return 1;
+                    }
+
+                    // names must be equal
+                    return 0;
+                });
+                console.log(foods)
+                foods.forEach(food => {
+                    let newFood = new Food(food)
+                    let foodHtml = newFood.formatIndex()
+                    $('#app-container').append(foodHtml)
+                })
+            })
+    })
 }
 
 class Food {
