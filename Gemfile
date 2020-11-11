@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.10'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.16'
 gem 'faker'
-gem 'bootstrap', '~> 4.5.2'
+gem 'bootstrap', '~> 4.5.3'
 gem 'jquery-rails'
 
 #omniauth gems
