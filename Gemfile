@@ -36,7 +36,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'dotenv-rails'
-gem 'active_model_serializers', '~> 0.10.13'
+gem 'active_model_serializers', '~> 0.10.14'
 
 
 

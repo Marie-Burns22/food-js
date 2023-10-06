@@ -39,9 +39,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_model_serializers (0.10.13)
-      actionpack (>= 4.1, < 7.1)
-      activemodel (>= 4.1, < 7.1)
+    active_model_serializers (0.10.14)
+      actionpack (>= 4.1)
+      activemodel (>= 4.1)
       case_transform (>= 0.2)
       jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (6.1.7.2)
@@ -150,8 +150,8 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.2)
-    minitest (5.18.1)
+    mini_portile2 (2.8.4)
+    minitest (5.20.0)
     msgpack (1.6.0)
     multi_xml (0.6.0)
     net-imap (0.3.4)
@@ -198,7 +198,7 @@ GEM
     puma (6.2.2)
       nio4r (~> 2.0)
     racc (1.7.1)
-    rack (2.2.7)
+    rack (2.2.8)
     rack-protection (3.0.5)
       rack
     rack-test (2.1.0)
@@ -218,8 +218,9 @@ GEM
       bundler (>= 1.15.0)
       railties (= 6.1.7.2)
       sprockets-rails (>= 2.0.0)
-    rails-dom-testing (2.0.3)
-      activesupport (>= 4.2.0)
+    rails-dom-testing (2.2.0)
+      activesupport (>= 5.0.0)
+      minitest
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
@@ -283,13 +284,13 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.8)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10.13)
+  active_model_serializers (~> 0.10.14)
   bcrypt (~> 3.1.19)
   bootsnap (>= 1.1.0)
   bootstrap (~> 5.1.3)
